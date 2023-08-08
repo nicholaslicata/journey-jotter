@@ -1,1 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.body {
+    height: 100%;
+}
+
+/* Login */
+
+.login-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5CDB95;
+}
+
+.login-container {
+    min-height: 400px;
+    width: 80%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #EDF5E1;
+    border-radius: 10px;
+}
+
+.login-title {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.8em;
+    border-radius: 10px 10px 0 0;
+    background-color: #05386B;
+    color: #EDF5E1;
+}
+
+.login-btn-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-register-btn {
+    width: 45%;
+    padding: 0.5em;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #05386B;
+    color:#EDF5E1
+}
+
+.select-register-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.select-login-btn {
+    width: 45%;
+    padding: 0.5em;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #05386B;
+    color: #EDF5E1;
+}
+
+.select-login-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.email-input-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+}
+
+.login-email-input {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+}
+
+.password-input-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+}
+
+.login-password-input {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+}
+
+.user-login-btn {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.5em;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 1em;
+    background-color: #05386B;
+    color: #EDF5E1;
+}
+
+.user-login-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.guest-login-btn {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #05386B;
+    color: #EDF5E1;
+}
+
+.guest-login-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
