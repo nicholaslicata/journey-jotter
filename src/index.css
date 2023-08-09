@@ -11,7 +11,7 @@
     height: 100%;
 }
 
-/* Login */
+/* LOGIN */
 
 .login-page {
     min-height: 100vh;
@@ -138,4 +138,45 @@
 .guest-login-btn:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+
+/* REGISTER */
+
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+    background-color: #5CDB95;
+}
+
+.register-container {
+    min-height: 400px;
+    width: 80%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #EDF5E1;
+    border-radius: 10px;
+}
+
+.register-btn-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-register-btn {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #05386B;
+    color: #EDF5E1;
 }
