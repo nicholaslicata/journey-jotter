@@ -1,11 +1,11 @@
 
-function Login() {
+function Login({ page, setPage }) {
     return (
         <main className='login-page'>
             <form className='login-container'>
                 <h1 className='login-title'>Journey Jotter</h1>
                 <div className='login-btn-container'>
-                    <button type='button' className='select-register-btn'>Register</button>
+                    <button onClick={() => setPage('register')} type='button' className='select-register-btn'>Register</button>
                     <button type='button' className='select-login-btn'>Log In</button>
                 </div>
                 <div className='email-input-container'>
