@@ -5,7 +5,7 @@ function Register({ page, setPage}) {
             <form className='register-container'>
                 <h1 className='login-title'>Journey Jotter</h1>
                 <div className='register-btn-container'>
-                    <button type='button' className='select-register-btn'>Register</button>
+                    <button type='button' className='select-register-active'>Register</button>
                     <button onClick={() => setPage('login')} type='button' className='select-login-btn'>Log In</button>
                 </div>
                 <div className='email-input-container'>
