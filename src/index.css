@@ -34,6 +34,7 @@
 
 .login-title {
     font-size: 1.2rem;
+    letter-spacing: 0.8px;
     text-align: center;
     padding: 0.8em;
     border-radius: 10px 10px 0 0;
@@ -53,6 +54,7 @@
     width: 45%;
     padding: 0.5em;
     font-size: 1rem;
+    letter-spacing: 0.4px;
     border-radius: 5px;
     border: none;
     background-color: #05386B;
@@ -64,10 +66,27 @@
     opacity: 0.8;
 }
 
+.select-register-active {
+    width: 45%;
+    padding: 0.5em;
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+    border-radius: 5px;
+    border: none;
+    background-color: #379683;
+    color:#EDF5E1
+}
+
+.select-register-active:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 .select-login-btn {
     width: 45%;
     padding: 0.5em;
     font-size: 1rem;
+    letter-spacing: 0.4px;
     border-radius: 5px;
     border: none;
     background-color: #05386B;
@@ -75,6 +94,22 @@
 }
 
 .select-login-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.select-login-active {
+    width: 45%;
+    padding: 0.5em;
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+    border-radius: 5px;
+    border: none;
+    background-color: #379683;
+    color:#EDF5E1
+}
+
+.select-login-active:hover {
     cursor: pointer;
     opacity: 0.8;
 }
@@ -92,6 +127,10 @@
     border: none;
 }
 
+.login-email-input::placeholder {
+    letter-spacing: 0.4px;
+}
+
 .password-input-container {
     width: 80%;
     margin: 0 auto;
@@ -106,11 +145,16 @@
     border: none;
 }
 
+.login-password-input::placeholder {
+    letter-spacing: 0.4px;
+}
+
 .user-login-btn {
     width: 80%;
     margin: 0 auto;
     padding: 0.5em;
     font-size: 1rem;
+    letter-spacing: 0.2px;
     border-radius: 5px;
     border: none;
     margin-bottom: 1em;
@@ -129,6 +173,7 @@
     margin-bottom: 1em;
     padding: 0.5em;
     font-size: 1rem;
+    letter-spacing: 0.2px;
     border-radius: 5px;
     border: none;
     background-color: #05386B;
@@ -175,6 +220,7 @@
     margin-bottom: 1em;
     padding: 0.5em;
     font-size: 1rem;
+    letter-spacing: 0.4px;
     border-radius: 5px;
     border: none;
     background-color: #05386B;
