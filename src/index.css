@@ -11,6 +11,22 @@
     height: 100%;
 }
 
+/* ERRORS */
+
+.login-error {
+    padding-top: 0.2em;
+    font-size: 1rem;
+    color: red;
+    text-align: center;
+}
+
+.register-error {
+    padding-top: 0.2em;
+    font-size: 1rem;
+    color: red;
+    text-align: center;
+}
+
 /* LOGIN */
 
 .login-page {
