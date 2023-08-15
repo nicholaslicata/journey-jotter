@@ -14,14 +14,14 @@
 /* ERRORS */
 
 .login-error {
-    padding-top: 0.2em;
+    padding-top: 0.5em;
     font-size: 1rem;
     color: red;
     text-align: center;
 }
 
 .register-error {
-    padding-top: 0.2em;
+    padding-top: 0.4em;
     font-size: 1rem;
     color: red;
     text-align: center;
@@ -225,7 +225,7 @@
 .register-btn-container {
     width: 80%;
     margin: 0 auto;
-    margin-top: 3em;
+    margin-top: 2.5em;
     display: flex;
     justify-content: space-between;
 }
