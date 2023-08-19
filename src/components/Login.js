@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { auth } from '../firebase'
-import { signInAnonymously, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
 
-function Login({ page, setPage, error, setError, errorMessage, setErrorMessage }) {
+function Login({ setPage, error, setError, errorMessage, setErrorMessage }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+       console.log(auth.currentUser);
+    }, [])
 
     async function logInUser(e) {
         e.preventDefault();
@@ -13,6 +17,7 @@ function Login({ page, setPage, error, setError, errorMessage, setErrorMessage }
             if (email && password) {
             const response = await signInWithEmailAndPassword(auth, email, password);
             const user = response.user;
+            setPersistence(auth, browserSessionPersistence);
             setPage('home');
             setError(false);
             console.log(user);
@@ -35,7 +40,7 @@ function Login({ page, setPage, error, setError, errorMessage, setErrorMessage }
     async function logInGuest(e) {
         e.preventDefault();
         try {
-            await signInAnonymously(auth);
+            await signInWithEmailAndPassword(auth, 'guest@gmail.com', '123456');
             setPage('home');
         }
         catch(err) {
@@ -54,11 +59,11 @@ function Login({ page, setPage, error, setError, errorMessage, setErrorMessage }
                 </div>
                 <div className='email-input-container'>
                     <label htmlFor='login-email' className='login-label'>Email</label>
-                    <input onChange={(e) => setEmail(e.target.value)} type='email' name='login-email' className='login-email-input' placeholder='Type your email' autoComplete="off" minLength='6' required />
+                    <input onChange={(e) => setEmail(e.target.value)} type='email' id='login-email' className='login-email-input' placeholder='Type your email' autoComplete="off" minLength='6' required />
                 </div>
                 <div className='password-input-container'>
                     <label htmlFor='login-password' className='login-label'>Password</label>
-                    <input onChange={(e) => setPassword(e.target.value)} type='password' name='login-password' className='login-password-input' placeholder='Type your password' autoComplete="off" minLength='6' required />
+                    <input onChange={(e) => setPassword(e.target.value)} type='password' id='login-password' className='login-password-input' placeholder='Type your password' autoComplete="off" minLength='6' required />
                 </div>
                 <button type='submit' onClick={logInUser} className='user-login-btn'>Log In To Account</button>
                 <button type='submit' onClick={logInGuest} className='guest-login-btn'>Continue As Guest</button>
