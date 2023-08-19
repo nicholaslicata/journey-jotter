@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       {page === 'login' && <Login page={page} setPage={setPage} error={error} setError={setError} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
       {page === 'register' && <Register page={page} setPage={setPage} error={error} setError={setError} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
-      {page === 'home' && <Home />}
+      {page === 'home' && <Home setPage={setPage} />}
     </div>
   );
 }
