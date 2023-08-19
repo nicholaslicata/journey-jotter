@@ -1,7 +1,10 @@
+import Nav from '../components/Nav';
 
-function Home() {
+function Home({ setPage }) {
     return (
-        <h1>Home</h1>
+        <main className='home-page'>
+            <Nav setPage={setPage} />
+        </main>
     )
 }
 
