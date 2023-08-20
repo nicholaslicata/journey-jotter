@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { auth } from '../firebase'
-import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence, onAuthStateChanged } from 'firebase/auth';
 
-function Login({ setPage, error, setError, errorMessage, setErrorMessage }) {
+function Login({ setPage, error, setError, errorMessage, setErrorMessage, user }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-       console.log(auth.currentUser);
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setPage('home');
+            }
+        })
     }, [])
 
     async function logInUser(e) {
