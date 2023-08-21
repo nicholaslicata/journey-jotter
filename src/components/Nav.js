@@ -10,8 +10,11 @@ function Nav({ setPage }) {
 
     return (
         <nav className='nav'>
-            <p>Welcome {auth.currentUser.displayName ? auth.currentUser.displayName : 'Guest'}!</p>
-            <button onClick={logOutUser} className='logout-button'>Log out</button>
+            <h1 className='logo'>Journey Jotter</h1>
+            <div className='greeting-container'>
+                <p className='greeting'>Welcome {auth.currentUser.displayName ? auth.currentUser.displayName : 'Guest'}!</p>
+                <button onClick={logOutUser} className='logout-button'>Log out</button>
+            </div>
         </nav>
     )
 }
