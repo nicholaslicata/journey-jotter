@@ -303,6 +303,19 @@
     background-color: #5CDB95;
 }
 
+.list-container {
+    border: 1px solid red;
+}
+
+.item-container {
+    border: 1px solid blue;
+}
+
+.add-item-form {
+    border: 1px solid blue;
+}
+
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 500px) {
