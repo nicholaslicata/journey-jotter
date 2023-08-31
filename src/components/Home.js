@@ -5,6 +5,8 @@ import Nav from '../components/Nav';
 import List from '../components/List';
 import AddItemForm from '../components/AddItemForm';
 import ItemDetails from '../components/ItemDetails';
+import AddItemBtn from '../components/AddItemBtn';
+import BackBtn from '../components/BackBtn';
 
 function Home({ setPage, subPage, setSubPage, list, setList }) {
 
@@ -14,6 +16,7 @@ function Home({ setPage, subPage, setSubPage, list, setList }) {
     const [newLocation, setNewLocation] = useState('');
     const [newDate, setNewDate]  = useState(0);
     const [newDescription, setNewDescription] = useState('');
+    const [currentItem, setCurrentItem] = useState();
 
     useEffect(() => {
         getList();
@@ -28,12 +31,11 @@ function Home({ setPage, subPage, setSubPage, list, setList }) {
     return (
         <main className='home-page'>
             <Nav setPage={setPage} />
-            <div className='add-btn-container'>
-                <button onClick={() => setSubPage('addItemForm')} className='add-item-btn'>Add Item</button>
-            </div>
-            {subPage === 'list' && <List list={list} setSubPage={setSubPage} />}
-            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} getList={getList} />}
-            {subPage === 'itemDetails' && <ItemDetails />}
+            {subPage === 'list' && <AddItemBtn setSubPage={setSubPage} />}
+            {subPage === 'addItemForm' || subPage === 'itemDetails' ? <BackBtn setSubPage={setSubPage} /> : null}
+            {subPage === 'list' && <List list={list} setSubPage={setSubPage} setCurrentItem={setCurrentItem} />}
+            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} getList={getList} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newDate={newDate} setNewDate={setNewDate} newDescription={newDescription} setNewDescription={setNewDescription}/>}
+            {subPage === 'itemDetails' && <ItemDetails currentItem={currentItem} />}
         </main>
     )
 }
