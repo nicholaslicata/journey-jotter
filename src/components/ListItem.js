@@ -1,8 +1,16 @@
+import { BiChevronRight } from 'react-icons/bi';
 
-function ListItem() {
+function ListItem({ item, setSubPage, setCurrentItem }) {
+
+    function handleItemClick() {
+        setSubPage('itemDetails');
+        setCurrentItem(item);
+    }
+
     return (
-        <div className='item-container'>
-            <p>List item</p>
+        <div onClick={handleItemClick} className='list-item-container'>
+            <p className='list-item-title'>{item.title}</p>
+            <BiChevronRight className='list-item-arrow' />
         </div>
     )
 }
