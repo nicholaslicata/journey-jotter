@@ -1,11 +1,12 @@
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 
-function Nav({ setPage }) {
+function Nav({ setPage, setSubPage }) {
     
     async function logOutUser() {
         await signOut(auth);
         setPage('login');
+        setSubPage('list');
     }
 
     return (
