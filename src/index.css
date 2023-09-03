@@ -301,14 +301,14 @@
 .home-page {
     min-height: 100vh;
     background-color: #5CDB95;
+    /* padding-bottom: 2em; */
 }
 
 .list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid red;
-    padding: 1em 0;
+    padding: 0.5em 0;
 }
 
 .list-item-container {
@@ -317,18 +317,21 @@
     align-items: center;
     justify-content: space-between;
     width: 90%;
+    max-width: 800px;
     margin: 0.5em 0;
-    padding: 1em 1em;
+    padding: 1.5em 1em;
     background-color: #EDF5E1;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .list-item-container:hover {
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .list-item-title {
     font-size: 1rem;
+    letter-spacing: 0.4px;
 }
 
 .list-item-arrow {
@@ -336,11 +339,44 @@
 }
 
 .add-item-form {
-    border: 1px solid blue;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 0 auto;
+    background-color: #EDF5E1;
+    border-radius: 10px;
+}
+
+.add-item-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0;
+}
+
+.add-item-input {
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
+    border: none;
+}
+
+.add-item-description {
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+
+.add-item-status {
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
 }
 
 .add-btn-container {
     padding: 1em 1em;
+    margin: 0 auto;
 }
 
 .add-item-btn {
@@ -370,6 +406,30 @@
     padding: 0.5em 0.5em;
 }
 
+.back-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.add-item-submit {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 0.5em;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 1em;
+    background-color: #05386B;
+    color: #EDF5E1;
+}
+
+.add-item-submit:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 500px) {
@@ -387,6 +447,16 @@
     .logout-button {
         font-size: 1rem;
     }
+
+    /* HOME */
+    .add-item-btn {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        font-size: 1rem;
+    }
+
 }
 
 @media screen and (min-width: 768px) {
