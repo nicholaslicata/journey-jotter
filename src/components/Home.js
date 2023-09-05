@@ -22,7 +22,7 @@ function Home({ setPage, subPage, setSubPage, list, setList }) {
 
     useEffect(() => {
         getList();
-    }, [])
+    }, [list])
 
     async function getList() {
         const response = await getDocs(listRef);
@@ -36,8 +36,8 @@ function Home({ setPage, subPage, setSubPage, list, setList }) {
             {subPage === 'list' && <AddItemBtn setSubPage={setSubPage} />}
             {subPage === 'addItemForm' || subPage === 'itemDetails' ? <BackBtn setSubPage={setSubPage} /> : null}
             {subPage === 'list' && <List list={list} setSubPage={setSubPage} setCurrentItem={setCurrentItem} />}
-            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} getList={getList} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} newCompletedDate={newCompletedDate} setNewCompletedDate={setNewCompletedDate} />}
-            {subPage === 'itemDetails' && <ItemDetails currentItem={currentItem} />}
+            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} newCompletedDate={newCompletedDate} setNewCompletedDate={setNewCompletedDate} />}
+            {subPage === 'itemDetails' && <ItemDetails currentItem={currentItem} setSubPage={setSubPage} />}
         </main>
     )
 }
