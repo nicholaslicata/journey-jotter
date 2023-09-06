@@ -301,7 +301,6 @@
 .home-page {
     min-height: 100vh;
     background-color: #5CDB95;
-    /* padding-bottom: 2em; */
 }
 
 .list-container {
@@ -430,6 +429,23 @@
     opacity: 0.8;
 }
 
+.empty-list-container {
+    margin-top: 5em;
+    padding: 1em;
+}
+
+.empty-list-text1 {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    margin-bottom: 1em;
+}
+
+.empty-list-text2 {
+    text-align: center;
+    letter-spacing: 0.4px;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 500px) {
@@ -471,5 +487,14 @@
 
     .greeting {
         padding-right: 1em;
+    }
+
+    /* HOME */
+    .empty-list-text1 {
+        font-size: 1.4rem;
+    }
+
+    .empty-list-text2 {
+        font-size: 1.2rem;
     }
 }
