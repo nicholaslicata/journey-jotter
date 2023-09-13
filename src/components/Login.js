@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { auth } from '../firebase'
 import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence, onAuthStateChanged } from 'firebase/auth';
 
-function Login({ setPage, error, setError, errorMessage, setErrorMessage, user }) {
+function Login({ setPage, error, setError, errorMessage, setErrorMessage, setUserId }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,6 +10,7 @@ function Login({ setPage, error, setError, errorMessage, setErrorMessage, user }
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                setUserId(user.uid);
                 setPage('home');
             }
         })
@@ -24,7 +25,6 @@ function Login({ setPage, error, setError, errorMessage, setErrorMessage, user }
             setPersistence(auth, browserSessionPersistence);
             setPage('home');
             setError(false);
-            console.log(user);
             } else if (!email || !password) {
                 setError(true);
                 setErrorMessage('Please fill out all text fields.');
