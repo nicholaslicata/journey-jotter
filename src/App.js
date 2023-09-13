@@ -5,6 +5,7 @@ import Home from './components/Home';
 
 function App() {
 
+  const [userId, setUserId] = useState();
   const [page, setPage] = useState('login');
   const [subPage, setSubPage] = useState('list');
   const [error, setError] = useState(false);
@@ -13,9 +14,9 @@ function App() {
 
   return (
     <div className="App">
-      {page === 'login' && <Login page={page} setPage={setPage} error={error} setError={setError} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
+      {page === 'login' && <Login page={page} setPage={setPage} error={error} setError={setError} errorMessage={errorMessage} setErrorMessage={setErrorMessage} setUserId={setUserId} />}
       {page === 'register' && <Register page={page} setPage={setPage} error={error} setError={setError} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
-      {page === 'home' && <Home setPage={setPage} subPage={subPage} setSubPage={setSubPage} list={list} setList={setList} />}
+      {page === 'home' && <Home setPage={setPage} subPage={subPage} setSubPage={setSubPage} list={list} setList={setList} userId={userId} />}
     </div>
   );
 }
