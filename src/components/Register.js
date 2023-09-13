@@ -19,7 +19,6 @@ function Register({ setPage, error, setError, errorMessage, setErrorMessage }) {
             })
             setPage('home');
             setError(false);
-            console.log(user);
             } else if (!email || !password || !username) {
             setError(true);
             setErrorMessage('Please fill out all text fields.');
