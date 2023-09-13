@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, query, where, onSnapshot } from 'firebase/firestore';
 import Nav from '../components/Nav';
 import List from '../components/List';
 import AddItemForm from '../components/AddItemForm';
@@ -8,7 +8,7 @@ import ItemDetails from '../components/ItemDetails';
 import AddItemBtn from '../components/AddItemBtn';
 import BackBtn from '../components/BackBtn';
 
-function Home({ setPage, subPage, setSubPage, list, setList }) {
+function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
 
     const listRef = collection(db, 'list');
 
@@ -22,12 +22,28 @@ function Home({ setPage, subPage, setSubPage, list, setList }) {
 
     useEffect(() => {
         getList();
-    }, [list])
+    }, [])
 
     async function getList() {
-        const response = await getDocs(listRef);
-        const filteredResponse = response.docs.map((doc) => ({...doc.data(), id: doc.id,}))
-        setList(filteredResponse);
+        try {
+        const listQuery = query(listRef, where('userId', '==', userId));
+        
+        onSnapshot(listQuery, (snapshot) => {
+            let docs = [];
+            
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                const id = doc.id;
+
+                docs.push({...data, id});
+            })
+
+            setList(docs);
+        })
+        }
+        catch(err) {
+            console.log(err.message);
+        }
     }
 
     return (
@@ -36,7 +52,7 @@ function Home({ setPage, subPage, setSubPage, list, setList }) {
             {subPage === 'list' && <AddItemBtn setSubPage={setSubPage} />}
             {subPage === 'addItemForm' || subPage === 'itemDetails' ? <BackBtn setSubPage={setSubPage} /> : null}
             {subPage === 'list' && <List list={list} setSubPage={setSubPage} setCurrentItem={setCurrentItem} />}
-            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} newCompletedDate={newCompletedDate} setNewCompletedDate={setNewCompletedDate} />}
+            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} newCompletedDate={newCompletedDate} setNewCompletedDate={setNewCompletedDate} userId={userId} />}
             {subPage === 'itemDetails' && <ItemDetails currentItem={currentItem} setSubPage={setSubPage} />}
         </main>
     )
