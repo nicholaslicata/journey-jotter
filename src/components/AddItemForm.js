@@ -1,6 +1,6 @@
 import { addDoc } from 'firebase/firestore';
 
-function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, setNewLocation, newTargetDate, setNewTargetDate, newDescription, setNewDescription, newStatus, setNewStatus, newCompletedDate, setNewCompletedDate }) {
+function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, setNewLocation, newTargetDate, setNewTargetDate, newDescription, setNewDescription, newStatus, setNewStatus, newCompletedDate, setNewCompletedDate, userId }) {
 
     async function addItem(e) {
         e.preventDefault();
@@ -11,6 +11,7 @@ function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
             description: newDescription,
             status: newStatus,
             completedDate: newCompletedDate,
+            userId: userId,
         })
         setSubPage('list');
     }
