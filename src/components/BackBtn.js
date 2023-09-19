@@ -1,10 +1,10 @@
 
-function BackBtn({ setSubPage }) {
+function BackBtn({ subPage, setSubPage }) {
     return (
         <div className='back-btn-container'>
-            <button onClick={() => setSubPage('list')} className='back-btn'>Go Back</button>
+            <button onClick={() => {subPage === 'editItemForm' ? setSubPage('itemDetails') : setSubPage('list')}} className='back-btn'>Go Back</button>
         </div>
     )
 }
 
-export default BackBtn;
+export default BackBtn; 
