@@ -28,7 +28,7 @@ function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
             </div>
             <div className='add-item-input-container'>
               <label htmlFor='add-item-target-date' className='add-item-label'>Target Date</label>
-              <input onChange={(e) => setNewTargetDate(e.target.value)} type='date' id='add-item-target-date' className='add-item-input' placeholder='When should this goal be completed by?' />
+              <input onChange={(e) => setNewTargetDate(e.target.value)} type='text' id='add-item-target-date' className='add-item-input' placeholder='When should this goal be completed by?' onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} />
             </div>
             <div className='add-item-input-container'>
               <label htmlFor='add-item-description' className='add-item-label'>Description</label>
@@ -44,7 +44,7 @@ function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
             </div>
             <div className='add-item-input-container'>
               <label htmlFor='add-item-completed-date' className='add-item-label'>Completed Date</label>
-              <input onChange={(e) => setNewCompletedDate(e.target.value)} type='date' id='add-item-completed-date' className='add-item-input'></input>
+              <input onChange={(e) => setNewCompletedDate(e.target.value)} type='text' id='add-item-completed-date' className='add-item-input' placeholder='When was this goal completed?' onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} ></input>
             </div>
             <button onClick={addItem} className='add-item-submit' type='submit'>Submit</button>
         </form>
