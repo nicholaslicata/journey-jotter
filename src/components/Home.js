@@ -22,9 +22,7 @@ function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
     const [newDescription, setNewDescription] = useState('');
     const [editedDescription, setEditedDescription] = useState();
     const [newStatus, setNewStatus] = useState('');
-    const [editedStatus, setEditedStatus] = useState('')
-    const [newCompletedDate, setNewCompletedDate] = useState('');
-    const [editedCompletedDate, setEditedCompletedDate] = useState('')
+    const [editedStatus, setEditedStatus] = useState('');
     const [currentItem, setCurrentItem] = useState();
 
     useEffect(() => {
@@ -54,11 +52,11 @@ function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
         <main className='home-page'>
             <Nav setPage={setPage} setSubPage={setSubPage} />
             {subPage === 'list' && <AddItemBtn setSubPage={setSubPage} />}
-            {subPage === 'addItemForm' || subPage === 'itemDetails' || subPage === 'editItemForm' ? <BackBtn subPage={subPage} setSubPage={setSubPage} /> : null}
+            {subPage === 'addItemForm' || subPage === 'itemDetails' || subPage === 'editItemForm' ? <BackBtn subPage={subPage} setSubPage={setSubPage} setNewTitle={setNewTitle} setNewLocation={setNewLocation} setNewTargetDate={setNewTargetDate} setNewDescription={setNewDescription} setNewStatus={setNewStatus} setEditedTitle={setEditedTitle} setEditedLocation={setEditedLocation} setEditedTargetDate={setEditedTargetDate} setEditedDescription={setEditedDescription} setEditedStatus={setEditedStatus} /> : null}
             {subPage === 'list' && <List list={list} setSubPage={setSubPage} setCurrentItem={setCurrentItem} currentItem={currentItem} />}
-            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} newCompletedDate={newCompletedDate} setNewCompletedDate={setNewCompletedDate} userId={userId} />}
+            {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} userId={userId} />}
             {subPage === 'itemDetails' && <ItemDetails currentItem={currentItem} setSubPage={setSubPage} />}
-            {subPage === 'editItemForm' && <EditItemForm currentItem={currentItem} editedTitle={editedTitle} setEditedTitle={setEditedTitle} editedLocation={editedLocation} setEditedLocation={setEditedLocation} editedTargetDate={editedTargetDate} setEditedTargetDate={setEditedTargetDate} editedDescription={editedDescription} setEditedDescription={setEditedDescription} editedStatus={editedStatus} setEditedStatus={setEditedStatus} editedCompletedDate={editedCompletedDate} setEditedCompletedDate={setEditedCompletedDate} setSubPage={setSubPage} />}
+            {subPage === 'editItemForm' && <EditItemForm currentItem={currentItem} editedTitle={editedTitle} setEditedTitle={setEditedTitle} editedLocation={editedLocation} setEditedLocation={setEditedLocation} editedTargetDate={editedTargetDate} setEditedTargetDate={setEditedTargetDate} editedDescription={editedDescription} setEditedDescription={setEditedDescription} editedStatus={editedStatus} setEditedStatus={setEditedStatus} setSubPage={setSubPage} />}
         </main>
     )
 }
