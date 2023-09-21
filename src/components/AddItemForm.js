@@ -1,23 +1,38 @@
+import { useState } from 'react';
 import { addDoc } from 'firebase/firestore';
 
-function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, setNewLocation, newTargetDate, setNewTargetDate, newDescription, setNewDescription, newStatus, setNewStatus, newCompletedDate, setNewCompletedDate, userId }) {
+function AddItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, setNewLocation, newTargetDate, setNewTargetDate, newDescription, setNewDescription, newStatus, setNewStatus, userId }) {
+
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     async function addItem(e) {
-        e.preventDefault();
+      e.preventDefault();
+      if (newTitle && newLocation && newTargetDate && newDescription) {
         await addDoc(listRef, {
             title: newTitle,
             location: newLocation,
             targetDate: newTargetDate,
             description: newDescription,
             status: newStatus,
-            completedDate: newCompletedDate,
             userId: userId,
         })
+        setNewTitle('');
+        setNewLocation('');
+        setNewTargetDate('');
+        setNewDescription('');
+        setNewStatus('');
         setSubPage('list');
+        setError(false);
+      } else if (!newTitle || !newLocation || !newTargetDate || !newDescription) {
+        setError(true);
+        setErrorMessage('Please fill out all text fields.');
+      }
     }
     
     return (
         <form className='add-item-form'>
+          {error && errorMessage ? <span className='register-error'>{errorMessage}</span> : null}
             <div className='add-item-input-container'>
               <label htmlFor='add-item-title' className='add-item-label'>Title</label>
               <input onChange={(e) => setNewTitle(e.target.value)} type='text' id='add-item-title' className='add-item-input' placeholder='What would you like to achieve?' autoComplete='off'/>
@@ -42,13 +57,9 @@ function addItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
                 <option>Completed</option>
               </select>
             </div>
-            <div className='add-item-input-container'>
-              <label htmlFor='add-item-completed-date' className='add-item-label'>Completed Date</label>
-              <input onChange={(e) => setNewCompletedDate(e.target.value)} type='text' id='add-item-completed-date' className='add-item-input' placeholder='When was this goal completed?' onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} ></input>
-            </div>
             <button onClick={addItem} className='add-item-submit' type='submit'>Submit</button>
         </form>
     )
 }
 
-export default addItemForm;
+export default AddItemForm;
