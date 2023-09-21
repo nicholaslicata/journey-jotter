@@ -46,6 +46,7 @@ function Login({ setPage, error, setError, errorMessage, setErrorMessage, setUse
         try {
             await signInWithEmailAndPassword(auth, 'guest@gmail.com', '123456');
             setPage('home');
+            setError(false);
         }
         catch(err) {
             console.log(err.message);
