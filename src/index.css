@@ -300,14 +300,16 @@
 
 .home-page {
     min-height: 100vh;
+    padding-bottom: 2em;
     background-color: #5CDB95;
 }
 
 .list-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 0.5em 0;
+    min-height: 60vh;
 }
 
 .list-item-container {
@@ -335,6 +337,13 @@
 
 .list-item-arrow {
     color: #05386B;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 75vh;
 }
 
 .add-item-form {
@@ -430,8 +439,11 @@
 }
 
 .empty-list-container {
-    margin-top: 5em;
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 65vh;
+    width: 100%;
 }
 
 .empty-list-text1 {
@@ -444,6 +456,12 @@
 .empty-list-text2 {
     text-align: center;
     letter-spacing: 0.4px;
+}
+
+/* ITEM DETAILS */
+
+.item-details-container {
+    border: 1px solid red;
 }
 
 /* MEDIA QUERIES */
