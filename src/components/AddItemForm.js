@@ -14,7 +14,7 @@ function AddItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
             location: newLocation,
             targetDate: newTargetDate,
             description: newDescription,
-            status: newStatus,
+            status: !newStatus ? 'Not Started' : newStatus,
             userId: userId,
         })
         setNewTitle('');
@@ -31,6 +31,7 @@ function AddItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
     }
     
     return (
+      <div className='form-container'>
         <form className='add-item-form'>
           {error && errorMessage ? <span className='register-error'>{errorMessage}</span> : null}
             <div className='add-item-input-container'>
@@ -59,6 +60,7 @@ function AddItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
             </div>
             <button onClick={addItem} className='add-item-submit' type='submit'>Submit</button>
         </form>
+      </div>
     )
 }
 
