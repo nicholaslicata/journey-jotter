@@ -16,7 +16,7 @@ function EditItemForm({ currentItem, editedTitle, setEditedTitle, editedLocation
               location: editedLocation,
               targetDate: editedTargetDate,
               description: editedDescription,
-              status: editedStatus,
+              status: !editedStatus ? currentItem.status : editedStatus,
           })
           setEditedTitle('');
           setEditedLocation('');
@@ -32,6 +32,7 @@ function EditItemForm({ currentItem, editedTitle, setEditedTitle, editedLocation
     }
 
     return (
+      <div className='form-container'>
         <form className='add-item-form'>
           {error && errorMessage ? <span className='register-error'>{errorMessage}</span> : null}
             <div className='add-item-input-container'>
@@ -60,6 +61,7 @@ function EditItemForm({ currentItem, editedTitle, setEditedTitle, editedLocation
             </div>
             <button onClick={editItem} className='add-item-submit' type='submit'>Save Changes</button>
         </form>
+      </div>
     )
 }
 
