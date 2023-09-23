@@ -27,6 +27,7 @@ function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
 
     useEffect(() => {
         getList();
+        console.log(list);
     }, [])
 
     async function getList() {
