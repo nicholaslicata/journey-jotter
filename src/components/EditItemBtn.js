@@ -1,7 +1,7 @@
 
 function EditItemBtn({ setSubPage }) {
     return (
-        <button onClick={() => setSubPage('editItemForm')}>Edit</button>
+        <button className='edit-btn' onClick={() => setSubPage('editItemForm')}>Edit</button>
     )
 }
 
