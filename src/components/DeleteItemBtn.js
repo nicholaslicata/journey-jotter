@@ -9,7 +9,7 @@ function DeleteItemBtn({ currentItem, setSubPage }) {
     }
 
     return (
-        <button onClick={deleteItem}>Delete</button>
+        <button className='delete-btn' onClick={deleteItem}>Delete</button>
     )
 }
 
