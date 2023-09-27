@@ -8,6 +8,7 @@ import ItemDetails from '../components/ItemDetails';
 import AddItemBtn from '../components/AddItemBtn';
 import BackBtn from '../components/BackBtn';
 import EditItemForm from '../components/EditItemForm';
+import Filter from '../components/Filter';
 
 function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
 
@@ -24,6 +25,8 @@ function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
     const [newStatus, setNewStatus] = useState('');
     const [editedStatus, setEditedStatus] = useState('');
     const [currentItem, setCurrentItem] = useState();
+    const [isFilter, setIsFilter] = useState(false);
+    const [filterList, setFilterList] = useState('All');
 
     useEffect(() => {
         getList();
@@ -52,9 +55,9 @@ function Home({ setPage, subPage, setSubPage, list, setList, userId }) {
     return (
         <main className='home-page'>
             <Nav setPage={setPage} setSubPage={setSubPage} />
-            {subPage === 'list' && <AddItemBtn setSubPage={setSubPage} />}
+            {subPage === 'list' && <div className='list-btn-container'><AddItemBtn setSubPage={setSubPage} setIsFilter={setIsFilter} /><Filter isFilter={isFilter} setIsFilter={setIsFilter} setFilterList={setFilterList} /></div>}
             {subPage === 'addItemForm' || subPage === 'itemDetails' || subPage === 'editItemForm' ? <BackBtn subPage={subPage} setSubPage={setSubPage} setNewTitle={setNewTitle} setNewLocation={setNewLocation} setNewTargetDate={setNewTargetDate} setNewDescription={setNewDescription} setNewStatus={setNewStatus} setEditedTitle={setEditedTitle} setEditedLocation={setEditedLocation} setEditedTargetDate={setEditedTargetDate} setEditedDescription={setEditedDescription} setEditedStatus={setEditedStatus} /> : null}
-            {subPage === 'list' && <List list={list} setSubPage={setSubPage} setCurrentItem={setCurrentItem} currentItem={currentItem} />}
+            {subPage === 'list' && <List list={list} setSubPage={setSubPage} setCurrentItem={setCurrentItem} currentItem={currentItem} setIsFilter={setIsFilter} filterList={filterList} />}
             {subPage === 'addItemForm' && <AddItemForm listRef={listRef} setSubPage={setSubPage} newTitle={newTitle} setNewTitle={setNewTitle} newLocation={newLocation} setNewLocation={setNewLocation} newTargetDate={newTargetDate} setNewTargetDate={setNewTargetDate} newDescription={newDescription} setNewDescription={setNewDescription} newStatus={newStatus} setNewStatus={setNewStatus} userId={userId} />}
             {subPage === 'itemDetails' && <ItemDetails currentItem={currentItem} setSubPage={setSubPage} />}
             {subPage === 'editItemForm' && <EditItemForm currentItem={currentItem} editedTitle={editedTitle} setEditedTitle={setEditedTitle} editedLocation={editedLocation} setEditedLocation={setEditedLocation} editedTargetDate={editedTargetDate} setEditedTargetDate={setEditedTargetDate} editedDescription={editedDescription} setEditedDescription={setEditedDescription} editedStatus={editedStatus} setEditedStatus={setEditedStatus} setSubPage={setSubPage} />}
