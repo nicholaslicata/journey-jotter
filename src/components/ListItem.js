@@ -1,10 +1,11 @@
 import { BiChevronRight } from 'react-icons/bi';
 
-function ListItem({ item, setSubPage, setCurrentItem }) {
+function ListItem({ item, setSubPage, setCurrentItem, setIsFilter }) {
 
     function handleItemClick() {
         setSubPage('itemDetails');
         setCurrentItem(item);
+        setIsFilter(false);
     }
 
     return (
