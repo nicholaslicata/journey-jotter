@@ -1,8 +1,8 @@
 
-function AddItemBtn({ setSubPage }) {
+function AddItemBtn({ setSubPage, setIsFilter }) {
     return (
         <div className='add-btn-container'>
-            <button onClick={() => setSubPage('addItemForm')} className='add-item-btn'>Add Item</button>
+            <button onClick={() => {setSubPage('addItemForm'); setIsFilter(false);}} className='add-item-btn'>Add Item</button>
         </div>
     )
 }
