@@ -44,7 +44,8 @@ function AddItemForm({ listRef, setSubPage, newTitle, setNewTitle, newLocation, 
             </div>
             <div className='add-item-input-container'>
               <label htmlFor='add-item-target-date' className='add-item-label'>Target Date</label>
-              <input onChange={(e) => setNewTargetDate(e.target.value)} type='text' id='add-item-target-date' className='add-item-input' placeholder='When should this goal be completed by?' onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} />
+              {/* <input onChange={(e) => setNewTargetDate(e.target.value)} type='text' id='add-item-target-date' className='add-item-input' placeholder='When should this goal be completed by?' onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} /> */}
+              <input onChange={(e) => setNewTargetDate(e.target.value)} type='date' id='add-item-target-date' className='add-item-input' />
             </div>
             <div className='add-item-input-container'>
               <label htmlFor='add-item-description' className='add-item-label'>Description</label>

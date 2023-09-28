@@ -341,6 +341,12 @@
     padding: 2em 0;
 }
 
+.list-count {
+    color:#05386B;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
 .list-item-title {
     font-size: 1rem;
     letter-spacing: 0.4px;
@@ -393,12 +399,6 @@
     padding: 0.5em 0.5em;
     border-radius: 5px;
 }
-
-/* .add-btn-container {
-    padding: 1em 1em;
-    margin: 0 auto;
-    border: 1px solid red;
-} */
 
 .add-item-btn {
     background-color: #05386B;
